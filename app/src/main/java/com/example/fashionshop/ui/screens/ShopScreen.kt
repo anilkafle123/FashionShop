@@ -87,7 +87,8 @@ fun ShopScreen() {
                 bagItems = state.bag,
                 onDismiss = { viewModel.toggleBag() },
                 onAdd = { viewModel.addToBag(it) },
-                onRemove = { viewModel.removeFromBag(it) }
+                onRemove = { viewModel.removeFromBag(it) },
+                onCheckout = { viewModel.clearBag() }
             )
         }
     }

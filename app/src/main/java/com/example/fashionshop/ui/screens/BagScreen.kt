@@ -22,7 +22,8 @@ fun BagBottomSheet(
     bagItems: Map<ClothingItem, Int>,
     onDismiss: () -> Unit,
     onAdd: (ClothingItem) -> Unit,
-    onRemove: (ClothingItem) -> Unit
+    onRemove: (ClothingItem) -> Unit,
+    onCheckout: () -> Unit
 ) {
     val total = bagItems.entries.sumOf { it.key.price * it.value }
 
@@ -84,7 +85,7 @@ fun BagBottomSheet(
                             fontSize = 22.sp, color = Color(0xFF1A1A2E))
                     }
                     Button(
-                        onClick = onDismiss,
+                        onClick = onCheckout,
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFF1A1A2E)
