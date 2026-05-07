@@ -4,9 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.*
+import com.example.fashionshop.ui.screens.HomeScreen
 import com.example.fashionshop.ui.screens.ShopScreen
 import com.example.fashionshop.ui.theme.FashionShopTheme
 
@@ -16,7 +15,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FashionShopTheme {
-                Surface(modifier = Modifier.fillMaxSize()) {
+                var showHome by remember { mutableStateOf(true) }
+
+                if (showHome) {
+                    HomeScreen(onEnterShop = { showHome = false })
+                } else {
                     ShopScreen()
                 }
             }
